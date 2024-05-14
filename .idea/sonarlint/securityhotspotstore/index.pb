@@ -57,3 +57,5 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 k
 ;pdfviewer/src/main/java/com/aks/pdfviewer/dialog/Dialogs.kt,5\6\567a9bcd8f815c3f18b69dea2346f606e2f22cc2
+C
+settings.gradle.kts,7\4\749edfcc96398253e5b3416184e95c46621da850
