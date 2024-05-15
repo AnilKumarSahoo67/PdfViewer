@@ -36,7 +36,16 @@
                     android:id="@+id/relativeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/backspace"
+                        android:padding="10dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:id="@+id/btnBack"/>
 
                     <TextView
                         android:id="@+id/title"
@@ -46,6 +55,8 @@
                         android:focusable="true"
                         android:gravity="center_vertical"
                         android:text="Pdf Viewer"
+                        android:layout_toEndOf="@+id/btnBack"
+                        android:layout_toStartOf="@+id/btnDownload"
                         android:textColor="@color/black"
                         android:textSize="17sp" />
                     <ImageView
@@ -53,6 +64,7 @@
                         android:layout_height="48dp"
                         android:src="@drawable/downloads"
                         android:padding="12dp"
+                        android:layout_centerVertical="true"
                         android:layout_alignParentEnd="true"
                         android:id="@+id/btnDownload"/>
 

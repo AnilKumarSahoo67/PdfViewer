@@ -37,7 +37,7 @@ class PdfDownloader(
     }
 
     companion object {
-        private const val MAX_RETRIES = 3 // Maximum number of retries
+        private const val MAX_RETRIES = 1 // Maximum number of retries
         private const val RETRY_DELAY = 2000L // Delay between retries in milliseconds
     }
 
@@ -117,7 +117,9 @@ class PdfDownloader(
                 } catch (e: IOException) {
                     tempFile?.delete()
                     Log.e("PdfDownloader", "Download incomplete or failed: $downloadUrl", e)
-                    withContext(Dispatchers.Main) { listener.onError(e) }
+                    withContext(Dispatchers.Main) {
+                        listener.onError(e)
+                    }
                     retries++
                     if (retries < MAX_RETRIES) {
                         Log.d("PdfDownloader", "Retrying download: $downloadUrl. Attempt $retries")

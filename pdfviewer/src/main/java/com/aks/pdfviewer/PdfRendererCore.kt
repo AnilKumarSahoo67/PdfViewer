@@ -108,7 +108,11 @@ internal class PdfRendererCore(
             }
     }
     private fun openPdfFile(fileDescriptor: ParcelFileDescriptor) {
-        pdfRenderer = PdfRenderer(fileDescriptor)
+        try {
+            pdfRenderer = PdfRenderer(fileDescriptor)
+        } catch (e: Exception) {
+           e.printStackTrace()
+        }
     }
 
     fun getPageCount(): Int {

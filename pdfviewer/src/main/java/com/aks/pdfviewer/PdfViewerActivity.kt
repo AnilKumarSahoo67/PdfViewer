@@ -229,6 +229,9 @@ class PdfViewerActivity : AppCompatActivity() {
         binding.btnDownload.setOnClickListener {
             checkAndStartDownload()
         }
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 //    private fun setUpToolbar(toolbarTitle: String) {
 //        setSupportActionBar(binding.myToolbar)
@@ -291,12 +294,14 @@ class PdfViewerActivity : AppCompatActivity() {
         if (TextUtils.isEmpty(fileUrl)) onPdfError("")
         //Initiating PDf Viewer with URL
         try {
-            binding.pdfView.initWithUrl(
-                fileUrl!!,
-                headers,
-                lifecycleScope,
-                lifecycle = lifecycle
-            )
+            if (fileUrl != null) {
+                binding.pdfView.initWithUrl(
+                    fileUrl,
+                    headers,
+                    lifecycleScope,
+                    lifecycle = lifecycle
+                )
+            }
         } catch (e: Exception) {
             onPdfError(e.toString())
         }
@@ -327,7 +332,7 @@ class PdfViewerActivity : AppCompatActivity() {
             this,
             pdf_viewer_error,
             error_pdf_corrupted,
-            true,
+            false,
             pdf_viewer_retry){
             runOnUiThread {
                 init()
