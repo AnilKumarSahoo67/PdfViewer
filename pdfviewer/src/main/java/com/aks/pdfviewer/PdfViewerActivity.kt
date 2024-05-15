@@ -332,7 +332,7 @@ class PdfViewerActivity : AppCompatActivity() {
             this,
             pdf_viewer_error,
             error_pdf_corrupted,
-            false,
+            true,
             pdf_viewer_retry){
             runOnUiThread {
                 init()

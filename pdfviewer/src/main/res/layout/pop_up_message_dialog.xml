@@ -23,13 +23,13 @@
             android:padding="5dp"
             >
             <ImageButton
-                android:padding="7dp"
+                android:padding="12dp"
                 android:scaleType="centerCrop"
                 android:background="#00FFFFFF"
                 android:id="@+id/closeDialog"
                 android:layout_width="42dp"
                 android:layout_height="42dp"
-                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:src="@drawable/close"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
