@@ -31,6 +31,7 @@ import com.aks.pdfviewer.adapter.PdfViewAdapter
 import com.aks.pdfviewer.models.HeaderData
 import java.io.File
 import java.io.FileNotFoundException
+import java.io.IOException
 
 /**
  * Created by Rajat on 11,July,2020
@@ -130,8 +131,14 @@ class PdfRendererView @JvmOverloads constructor(
     }
 
     private fun init(file: File) {
-        val fileDescriptor = PdfRendererCore.getFileDescriptor(file)
-        init(fileDescriptor)
+        val fileDescriptor = try {
+            PdfRendererCore.getFileDescriptor(file)
+        } catch (e: IOException) {
+            null
+        }
+        fileDescriptor?.let {
+            init(it)
+        }
     }
 
     private fun init(fileDescriptor: ParcelFileDescriptor) {
